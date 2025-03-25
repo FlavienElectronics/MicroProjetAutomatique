@@ -6,9 +6,9 @@
  *
  * Code generation for model "PROJET_IO".
  *
- * Model version              : 1.4
+ * Model version              : 1.14
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Fri Mar  7 09:37:57 2025
+ * C source code generated on : Tue Mar 25 09:26:40 2025
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,6 +19,7 @@
 
 #ifndef RTW_HEADER_PROJET_IO_h_
 #define RTW_HEADER_PROJET_IO_h_
+#include <math.h>
 #include <string.h>
 #ifndef PROJET_IO_COMMON_INCLUDES_
 # define PROJET_IO_COMMON_INCLUDES_
@@ -850,17 +851,27 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Step;                         /* '<Root>/Step' */
+  real_T FromWorkspace;                /* '<Root>/From Workspace' */
   real_T AnalogInput;                  /* '<Root>/Analog Input' */
 } B_PROJET_IO_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
+  struct {
+    void *TimePtr;
+    void *DataPtr;
+    void *RSimInfoPtr;
+  } FromWorkspace_PWORK;               /* '<Root>/From Workspace' */
+
   void *AnalogOutput_PWORK;            /* '<Root>/Analog Output' */
   void *AnalogInput_PWORK;             /* '<Root>/Analog Input' */
   struct {
     void *LoggedData[2];
   } Scope_PWORK;                       /* '<Root>/Scope' */
+
+  struct {
+    int_T PrevIndex;
+  } FromWorkspace_IWORK;               /* '<Root>/From Workspace' */
 } DW_PROJET_IO_T;
 
 /* Backward compatible GRT Identifiers */
@@ -906,15 +917,6 @@ struct P_PROJET_IO_T_ {
                                         */
   int32_T AnalogInput_VoltRange;       /* Mask Parameter: AnalogInput_VoltRange
                                         * Referenced by: '<Root>/Analog Input'
-                                        */
-  real_T Step_Time;                    /* Expression: 1
-                                        * Referenced by: '<Root>/Step'
-                                        */
-  real_T Step_Y0;                      /* Expression: 0
-                                        * Referenced by: '<Root>/Step'
-                                        */
-  real_T Step_YFinal;                  /* Expression: 5
-                                        * Referenced by: '<Root>/Step'
                                         */
 };
 
@@ -1063,5 +1065,6 @@ extern RT_MODEL_PROJET_IO_T *const PROJET_IO_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'PROJET_IO'
+ * '<S1>'   : 'PROJET_IO/Signal Builder'
  */
 #endif                                 /* RTW_HEADER_PROJET_IO_h_ */

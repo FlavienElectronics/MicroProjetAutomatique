@@ -6,9 +6,9 @@
  *
  * Code generation for model "PROJET_IO".
  *
- * Model version              : 1.4
+ * Model version              : 1.14
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Fri Mar  7 09:37:57 2025
+ * C source code generated on : Tue Mar 25 09:26:40 2025
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -57,15 +57,17 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&PROJET_IO_B.Step), 0, 0, 2 }
+  { (char_T *)(&PROJET_IO_B.FromWorkspace), 0, 0, 2 }
   ,
 
-  { (char_T *)(&PROJET_IO_DW.AnalogOutput_PWORK), 11, 0, 4 }
+  { (char_T *)(&PROJET_IO_DW.FromWorkspace_PWORK.TimePtr), 11, 0, 5 },
+
+  { (char_T *)(&PROJET_IO_DW.FromWorkspace_IWORK.PrevIndex), 10, 0, 1 }
 };
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  2U,
+  3U,
   rtBTransitions
 };
 
@@ -73,14 +75,12 @@ static DataTypeTransitionTable rtBTransTable = {
 static DataTypeTransition rtPTransitions[] = {
   { (char_T *)(&PROJET_IO_P.AnalogOutput_MaxMissedTicks), 0, 0, 4 },
 
-  { (char_T *)(&PROJET_IO_P.AnalogOutput_Channels), 6, 0, 6 },
-
-  { (char_T *)(&PROJET_IO_P.Step_Time), 0, 0, 3 }
+  { (char_T *)(&PROJET_IO_P.AnalogOutput_Channels), 6, 0, 6 }
 };
 
 /* data type transition table for Parameters structure */
 static DataTypeTransitionTable rtPTransTable = {
-  3U,
+  2U,
   rtPTransitions
 };
 

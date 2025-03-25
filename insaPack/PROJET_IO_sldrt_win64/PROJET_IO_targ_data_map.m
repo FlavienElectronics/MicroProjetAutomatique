@@ -5,7 +5,7 @@
   ;%***********************
       
     nTotData      = 0; %add to this count as we go
-    nTotSects     = 3;
+    nTotSects     = 2;
     sectIdxOffset = 0;
     
     ;%
@@ -82,25 +82,6 @@
       paramMap.sections(2) = section;
       clear section
       
-      section.nData     = 3;
-      section.data(3)  = dumData; %prealloc
-      
-	  ;% PROJET_IO_P.Step_Time
-	  section.data(1).logicalSrcIdx = 12;
-	  section.data(1).dtTransOffset = 0;
-	
-	  ;% PROJET_IO_P.Step_Y0
-	  section.data(2).logicalSrcIdx = 13;
-	  section.data(2).dtTransOffset = 1;
-	
-	  ;% PROJET_IO_P.Step_YFinal
-	  section.data(3).logicalSrcIdx = 14;
-	  section.data(3).dtTransOffset = 2;
-	
-      nTotData = nTotData + section.nData;
-      paramMap.sections(3) = section;
-      clear section
-      
     
       ;%
       ;% Non-auto Data (parameter)
@@ -145,7 +126,7 @@
       section.nData     = 2;
       section.data(2)  = dumData; %prealloc
       
-	  ;% PROJET_IO_B.Step
+	  ;% PROJET_IO_B.FromWorkspace
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
@@ -175,7 +156,7 @@
   ;%*******************
       
     nTotData      = 0; %add to this count as we go
-    nTotSects     = 1;
+    nTotSects     = 2;
     sectIdxOffset = 1;
     
     ;%
@@ -198,23 +179,38 @@
     ;%
     ;% Auto data (PROJET_IO_DW)
     ;%
-      section.nData     = 3;
-      section.data(3)  = dumData; %prealloc
+      section.nData     = 4;
+      section.data(4)  = dumData; %prealloc
       
-	  ;% PROJET_IO_DW.AnalogOutput_PWORK
+	  ;% PROJET_IO_DW.FromWorkspace_PWORK.TimePtr
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% PROJET_IO_DW.AnalogInput_PWORK
+	  ;% PROJET_IO_DW.AnalogOutput_PWORK
 	  section.data(2).logicalSrcIdx = 1;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% PROJET_IO_DW.Scope_PWORK.LoggedData
+	  ;% PROJET_IO_DW.AnalogInput_PWORK
 	  section.data(3).logicalSrcIdx = 2;
 	  section.data(3).dtTransOffset = 2;
 	
+	  ;% PROJET_IO_DW.Scope_PWORK.LoggedData
+	  section.data(4).logicalSrcIdx = 3;
+	  section.data(4).dtTransOffset = 3;
+	
       nTotData = nTotData + section.nData;
       dworkMap.sections(1) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% PROJET_IO_DW.FromWorkspace_IWORK.PrevIndex
+	  section.data(1).logicalSrcIdx = 4;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(2) = section;
       clear section
       
     
@@ -243,8 +239,8 @@
   ;%
 
 
-  targMap.checksum0 = 2695518537;
-  targMap.checksum1 = 3913854998;
-  targMap.checksum2 = 1893786071;
-  targMap.checksum3 = 366773735;
+  targMap.checksum0 = 3499054765;
+  targMap.checksum1 = 3542375362;
+  targMap.checksum2 = 2072597633;
+  targMap.checksum3 = 413744862;
 
